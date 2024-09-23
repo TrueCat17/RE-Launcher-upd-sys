@@ -23,8 +23,8 @@ Ren-Engine/rpy/paths.rpy|49aa1edccee4d8d82ac6ec2ef2e723bdd2db9369bc336a0027efd4e
 Ren-Engine/rpy/persistent.rpy|e93e89d1f9111ba542b42659c817eb37ed7ea385e1cd4761bec0e240f5b814f3|7167
 Ren-Engine/rpy/renpy_api.rpy|40b646ce7a17abdb789c2cc3d252f9689954510797583079b9146f40c9dd6a83|7035
 Ren-Engine/rpy/reus/||0
-Ren-Engine/rpy/reus/https.rpy|d0987424b8be9f32d6efe9232baf1008c2a12f4ecee056ff1b0a08f85d098347|3665
-Ren-Engine/rpy/reus/reus.rpy|a62a1b3dfec30e5a1b9676c43141dd905b800d9468493b7c5933309223a70696|14931
+Ren-Engine/rpy/reus/https.rpy|69ac5a04380315c8172d2c67b6948644af093f08e03db3025f749097e01c32f0|3816
+Ren-Engine/rpy/reus/reus.rpy|a4d5d4301afb6af6cf04cedd9e423cdda3691a12c63c4018b0edaf3300260e56|15129
 Ren-Engine/rpy/reus/reus_prefs.rpy|c663857b5b15c70d1163cb633575c55302a07aa3e8850184c21004c33ca28fdc|3305
 Ren-Engine/rpy/rpg/||0
 Ren-Engine/rpy/rpg/actions.rpy|ac308dd53334a932c7a8a8ffdcd850a0ee25fd286603b247458f63ce547fda7f|20279
@@ -48,7 +48,7 @@ Ren-Engine/rpy/screens/dialogue_box.rpy|88417404ff3ccc32cda7fcc6d7b14d4811da3a45
 Ren-Engine/rpy/screens/help.rpy|c6384ca4669f47b63bbfab26dbe0f3e839dacc9bb3e6a159e862c59b2f6f17c4|5922
 Ren-Engine/rpy/screens/history.rpy|2bcbc0cc90204727bdc31b1216cc12600130db480c2ac918398fc8167a1b3770|3978
 Ren-Engine/rpy/screens/hotkeys.rpy|09e7ca2f96a65d8e66a2b0ab3b020f9ab1cabc5071229afb76041f492a8a4fd1|5646
-Ren-Engine/rpy/screens/input.rpy|50cbe349d2266939768888534cc03af71f515def2007b2b73c5e95b58ec511ac|7845
+Ren-Engine/rpy/screens/input.rpy|b531b9b312b44723b19e90878e89a8013c83908641f6b59066cced4a80fbd18e|7849
 Ren-Engine/rpy/screens/inventory.rpy|e73ca96fca8b981efd816602cd68ba5fb0613f50ae559d960768ef0c115ec94f|16481
 Ren-Engine/rpy/screens/load.rpy|f1b52c74dd84ab48d8a811374942a1a0d30a44857e2193704a37c89b030cb318|133
 Ren-Engine/rpy/screens/location.rpy|deb33bae9080166a71b1e3e3c71b1469c8ca63625024ee202cc0ddefcb884f08|10651
@@ -79,7 +79,7 @@ Ren-Engine/rpy/style.rpy|49d0c8fca51d07fc828b047d36e03bd0a9c6bcba4d059a4e3f51f3f
 Ren-Engine/rpy/text_nav.rpy|0452f4f87f9c0a12ccfca8796672d6eccebf7e38bcf209f07145113ee401eccb|1950
 Ren-Engine/rpy/times.rpy|67da698334685f08d0910531b88fad60e173e227ff4a62888fdcb927f6aac438|1262
 Ren-Engine/rpy/tl/||0
-Ren-Engine/rpy/tl/russian.rpy|3ade366890637af8d6fbf3145d7f6f4cbd03e4f40f5c9dcc237c83068c07220e|3683
+Ren-Engine/rpy/tl/russian.rpy|18f3f0e475a500f1a145db67424c49564b3e797fbf23c1faa4a9eadaf16be995|3747
 Ren-Engine/rpy/translation.rpy|9f4988ae3bcfd4c620d8c362ecd293baad2d9d01823fc86b7f14f59911171e67|4971
 Ren-Engine/rpy/vn/||0
 Ren-Engine/rpy/vn/sprite.rpy|01a5992f362ac87ba36506884b25fe5fc462c3af078f69fd3a21af2d43c680ee|1177

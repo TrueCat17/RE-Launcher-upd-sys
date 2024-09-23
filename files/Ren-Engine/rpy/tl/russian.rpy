@@ -170,8 +170,14 @@ translate russian strings:
 	old 'Check all'
 	new 'Проверить всё'
 	
+	old 'Update'
+	new 'Обновить'
+	
 	old 'No updates'
 	new 'Нет обновлений'
+	
+	old 'There are updates'
+	new 'Есть обновления'
 	
 	old 'Need to download %s MB. Continue? y/n'
 	new 'Нужно загрузить %s МБ. Продолжить? y/n'
@@ -184,9 +190,6 @@ translate russian strings:
 	
 	old 'File <%s> has an invalid hash'
 	new 'Файл <%s> имеет неверный хэш'
-	
-	old 'Update'
-	new 'Обновить'
 	
 	old 'Updated'
 	new 'Обновлено'

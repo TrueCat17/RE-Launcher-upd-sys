@@ -186,6 +186,7 @@ init python:
 		dont_save_reus.paths_to_check = [path] if path is not None else sorted(persistent.reus_storage.keys())
 		dont_save_reus.check_index = 0
 		dont_save_reus.load_after = load_after
+		dont_save_reus.there_are_updates = False
 		dont_save_reus.cur_info = None
 		
 		reus.check_next()
@@ -201,12 +202,19 @@ init python:
 		
 		if dont_save_reus.cur_info:
 			dont_save_reus.cur_info.recalc()
+			if dont_save_reus.cur_info.has_changes:
+				dont_save_reus.there_are_updates = True
 		
 		if dont_save_reus.check_index >= len(dont_save_reus.paths_to_check):
 			dont_save_reus.loading = False
 			reus.scan_file_data()
-			if dont_save_reus.load_after:
-				reus.suggest()
+			if dont_save_reus.there_are_updates:
+				if dont_save_reus.load_after:
+					reus.suggest()
+				else:
+					notification.out('There are updates')
+			else:
+				notification.out('No updates')
 			return
 		
 		cur_path = dont_save_reus.cur_path = dont_save_reus.paths_to_check[dont_save_reus.check_index]
@@ -268,9 +276,6 @@ init python:
 	
 	def reus__suggest():
 		info = dont_save_reus.cur_info
-		if not info.has_changes:
-			notification.out('No updates')
-			return
 		
 		size = info.size_to_load / (1 << 20)
 		size = '%.1f' % size

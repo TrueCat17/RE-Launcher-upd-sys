@@ -9,18 +9,23 @@ init -100000 python:
 		dont_save_https.on_end = on_end
 		dont_save_https.on_error = on_error
 		dont_save_https.fails = 0
+		dont_save_https.stopped = False
 		interruptable_while(https.load_next_part)
 	
-	def https__close(close_conn = True):
+	def https__close(close_conn = True, stopped = True):
 		if close_conn:
 			dont_save_https.conn = None
 			dont_save_https.prev_domain = ''
 		dont_save_https.response = None
 		dont_save_https.prev_server_file_path = ''
 		dont_save_https.file = None
+		dont_save_https.stopped = stopped
 	
 	
 	def https__load_next_part():
+		if dont_save_https.stopped:
+			return True
+		
 		if 'exception' in dont_save_https:
 			e = dont_save_https.exception
 			del dont_save_https.exception
@@ -103,7 +108,7 @@ init -100000 python:
 			if part:
 				dont_save_https.file.write(part)
 			else:
-				https.close(close_conn = False)
+				https.close(close_conn = False, stopped = False)
 				del dont_save_https.local_path
 			
 		except BaseException as e:
