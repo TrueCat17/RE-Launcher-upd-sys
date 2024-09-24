@@ -23,7 +23,7 @@ init -100000 python:
 	
 	
 	def https__load_next_part():
-		if dont_save_https.stopped:
+		if dont_save_https.get('stopped'):
 			return True
 		
 		if 'exception' in dont_save_https:
@@ -42,8 +42,9 @@ init -100000 python:
 			return True
 		
 		if 'local_path' not in dont_save_https: # end or loaded without data
-			if dont_save_https.on_end:
-				dont_save_https.on_end()
+			on_end = dont_save_https.get('on_end')
+			if on_end:
+				on_end()
 			return True
 		
 		try:
@@ -52,7 +53,7 @@ init -100000 python:
 			domain = url[:sep]
 			server_file_path = url[sep+1:]
 			
-			if dont_save_https.prev_domain != domain:
+			if dont_save_https.get('prev_domain') != domain:
 				try:
 					from tlslite import HTTPTLSConnection
 					dont_save_https.conn = HTTPTLSConnection(domain, 443, timeout = 2)
@@ -66,7 +67,7 @@ init -100000 python:
 						dont_save_https.exception = dont_save_https.first_exception
 				return False
 			
-			if dont_save_https.prev_server_file_path != server_file_path:
+			if dont_save_https.get('prev_server_file_path') != server_file_path:
 				local_path = dont_save_https.local_path
 				size = os.stat(local_path).st_size if os.path.exists(local_path) else 0
 				
@@ -123,4 +124,3 @@ init -100000 python:
 	
 	build_object('https')
 	dont_save_https = DontSave()
-	https.close()

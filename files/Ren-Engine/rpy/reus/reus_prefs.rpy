@@ -1,5 +1,5 @@
 init python:
-	def reus_check_prefs(screen_name = None):
+	def reus_update_prefs(screen_name = None):
 		lang_changing = screen_name is None
 		added_to_pref_tabs = 'Updates' in preferences.tabs
 		
@@ -20,6 +20,11 @@ init python:
 		reus.scan_links()
 		paths = dont_save_reus.paths = list(persistent.reus_storage.keys())
 		if not paths:
+			if added_to_pref_tabs:
+				preferences.tabs.remove('Updates')
+				del preferences.content['Updates']
+				if preferences.tab == 'Updates':
+					preferences.tab = preferences.tabs[0]
 			return
 		
 		for path in paths:
@@ -35,16 +40,21 @@ init python:
 		
 		if not added_to_pref_tabs:
 			preferences.tabs.append('Updates')
-			preferences.content['Updates'] = [reus_prefs]
-			
-			dont_save_reus.prefs_page_index = 0
-			dont_save_reus.prefs_page_max = math.ceil(len(paths) / gui.prefs_update_buttons_in_page) - 1
+			preferences.content['Updates'] = [reus_get_prefs]
+		
+		dont_save_reus.prefs_page_index = 0
+		dont_save_reus.prefs_page_max = math.ceil(len(paths) / gui.prefs_update_buttons_in_page) - 1
 	
-	signals.add('show_screen', reus_check_prefs)
-	signals.add('language', reus_check_prefs)
+	signals.add('show_screen', reus_update_prefs)
+	signals.add('language', reus_update_prefs)
 	
 	
-	def reus_prefs():
+	def reus_get_prefs():
+		if 'paths' not in dont_save_reus:
+			reus_update_prefs()
+			if not dont_save_reus.paths: # loaded after removing all <upd_link.txt> files
+				return []
+		
 		res = []
 		
 		res.append([
@@ -58,7 +68,7 @@ init python:
 			next_action = '%s = min(%s + 1, dont_save_reus.prefs_page_max)' % (var, var)
 			
 			prev = ['btn', gui.back_button_text, None, prev_action, (1, 1)]
-			page = ['str', str(dont_save_reus.prefs_page_index)]
+			page = ['str', str(dont_save_reus.prefs_page_index + 1)]
 			next = ['btn', gui.next_button_text, None, next_action, (1, 1)]
 			
 			res.append([prev, page, next])
@@ -89,7 +99,8 @@ init python:
 				['btn', _('Update'), None, Function(reus.check_and_load, path), (4, 1)],
 			])
 		
-		btn_size = style.prefs_page_button.get_current('ysize')
+		btn_style = style.prefs_menu_button or style.menu_button
+		btn_size = btn_style.get_current('ysize')
 		text_size = style.menu_text.get_current('text_size')
 		k_text_size = max(btn_size / text_size, 1)
 		

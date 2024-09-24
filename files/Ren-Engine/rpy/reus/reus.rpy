@@ -8,9 +8,9 @@
 #   reus.stop_loading()           - on btn <cancel>
 #   reus.get_loading_progress() -> None or (loaded:str, size_to_load:str) (in MB, '%.1f')
 #  vars:
-#   dont_save_reus.loading                   - True / False
-#   persistent.reus_storage                  - .keys() - paths for checking, .values() - list[ReusInfo]
-#   info.cur_version != info.next_version    - update available
+#   dont_save_reus.loading      - True / False
+#   persistent.reus_storage     - .keys() - paths for checking, .values() - list[ReusInfo]
+#   info.has_changes            - update available
 
 
 init -100000 python:
@@ -168,7 +168,11 @@ init python:
 		return hash
 	
 	def reus__get_path(file_size, file_hash):
-		for path, (_mtime, size, hash) in persistent.reus_files.items():
+		reus_files = persistent.reus_files
+		paths = list(reus_files.keys()) # persistent.reus_files may change
+		
+		for path in paths:
+			_mtime, size, hash = reus_files[path]
 			if size != file_size: continue
 			if not hash:
 				hash = reus.get_hash(path)
@@ -179,7 +183,7 @@ init python:
 	
 	
 	def reus__check(path = None, load_after = False):
-		if dont_save_reus.loading:
+		if dont_save_reus.get('loading'):
 			return
 		dont_save_reus.loading = True
 		
@@ -217,7 +221,7 @@ init python:
 				notification.out('No updates')
 			return
 		
-		cur_path = dont_save_reus.cur_path = dont_save_reus.paths_to_check[dont_save_reus.check_index]
+		cur_path = dont_save_reus.paths_to_check[dont_save_reus.check_index]
 		dont_save_reus.check_index += 1
 		
 		info = dont_save_reus.cur_info = persistent.reus_storage[cur_path]
@@ -316,7 +320,7 @@ init python:
 		return res
 	
 	def reus__load_next_file():
-		loaded_without_data = dont_save_reus.to_load_index is None
+		loaded_without_data = dont_save_reus.get('to_load_index') is None
 		if loaded_without_data:
 			return
 		
@@ -365,7 +369,7 @@ init python:
 		https.get_file(url, dont_save_reus.local_path, reus.load_next_file, reus.stop_loading)
 	
 	def reus__get_loading_progress():
-		loaded_without_data = dont_save_reus.to_load_index is None
+		loaded_without_data = dont_save_reus.get('to_load_index') is None
 		if loaded_without_data or not dont_save_reus.loading:
 			return None
 		
@@ -531,13 +535,9 @@ init python:
 			safe_fs_op('rmdir', path)
 		
 		info.cur_version = info.new_version
+		info.recalc()
 		
 		persistent.reus_last_cleaning = 0
-		
-		# set flag manually: if [persistent.reus_last_cleaning] old_value == new_value -> no auto update
-		# but need save changes in persistent.reus_files
-		global persistent_need_save
-		persistent_need_save = True
 		
 		notification.out('Updated')
 	
@@ -578,8 +578,6 @@ init python:
 	reus.info_fn = 'info.txt'
 	
 	dont_save_reus = DontSave()
-	dont_save_reus.loading = False
-	dont_save_reus.to_load_index = None
 	
 	if get_current_mod() == 'main_menu':
 		reus.clear_prev() # on each restart
