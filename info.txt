@@ -24,7 +24,7 @@ Ren-Engine/rpy/persistent.rpy|e93e89d1f9111ba542b42659c817eb37ed7ea385e1cd4761be
 Ren-Engine/rpy/renpy_api.rpy|40b646ce7a17abdb789c2cc3d252f9689954510797583079b9146f40c9dd6a83|7035
 Ren-Engine/rpy/reus/||0
 Ren-Engine/rpy/reus/https.rpy|ed3f7fdc59dc0d37a09d857cc31d4673ffbe7548f49f848327b87307eb382fb7|3832
-Ren-Engine/rpy/reus/reus.rpy|5cc466c0af1c940617a7fac04b90f00302b056e54b4e2aaca31dbab5f8994c3b|14923
+Ren-Engine/rpy/reus/reus.rpy|6d32a58c66becdd958eca82ad59e31aeba3cab6e3a61cd5c96ddac997bbbfbac|14952
 Ren-Engine/rpy/reus/reus_prefs.rpy|291b90985d0c696d8268a362447227701ad7c4f89b95bc98461849d67c5303a9|3703
 Ren-Engine/rpy/rpg/||0
 Ren-Engine/rpy/rpg/actions.rpy|ac308dd53334a932c7a8a8ffdcd850a0ee25fd286603b247458f63ce547fda7f|20279
@@ -53,7 +53,7 @@ Ren-Engine/rpy/screens/inventory.rpy|e73ca96fca8b981efd816602cd68ba5fb0613f50ae5
 Ren-Engine/rpy/screens/load.rpy|f1b52c74dd84ab48d8a811374942a1a0d30a44857e2193704a37c89b030cb318|133
 Ren-Engine/rpy/screens/location.rpy|deb33bae9080166a71b1e3e3c71b1469c8ca63625024ee202cc0ddefcb884f08|10651
 Ren-Engine/rpy/screens/mods.rpy|4985f466d8f648283e24c580df46f91d52254c2960cc287afb20af3420dd1094|1247
-Ren-Engine/rpy/screens/notification.rpy|40bcfe7ec60dab65d35ae42748aa93242aea7c0f7d271107457ca6fa962eed58|1720
+Ren-Engine/rpy/screens/notification.rpy|fea0fccf2133650266a52ffd5a33a9385e458ed1db9818f50534255f9af15e00|2049
 Ren-Engine/rpy/screens/pause.rpy|d180a112b96632236724de59d3ba5143059e586eed0a1c0cc3690772993ba40e|3320
 Ren-Engine/rpy/screens/preferences.rpy|4969b55d5f9c095ccab2897e36594aa0796422c54aac6121af3a125dd23d8b80|10098
 Ren-Engine/rpy/screens/quick_menu.rpy|ce79f10909817d8e3342d4b1b23c911dff9d8d77b738e0d4bbb509bc2db24960|2078
@@ -85,7 +85,7 @@ Ren-Engine/rpy/vn/||0
 Ren-Engine/rpy/vn/sprite.rpy|01a5992f362ac87ba36506884b25fe5fc462c3af078f69fd3a21af2d43c680ee|1177
 Ren-Engine/rpy/vn/sprite_animation.rpy|321c6183be214d19ac82071768577535cd9cebb69ce0b0bde19f548767af94ea|9664
 Ren-Engine/rpy/vn/sprite_animation_data.rpy|ee7923b84d9093b06f22d49c8a8a4f620482ea77f0a0ef616e5b78adcdac84fb|3132
-Ren-Engine/version|c8d9143c8f1f18f9ee3209f9d26a8c99cd9298f6a2dea5b326e86de50a732eee|17
+Ren-Engine/version|5c87cc369d547deed630614839ed47b3897812b4790940d605d0cdb8d3bccc8a|17
 Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
 resources/||0
 resources/fonts/||0
@@ -118,9 +118,9 @@ resources/mods/common/config.rpy|52c1dd17b8a5b6ab96ecd3bf9169d891034ca3406d9bf1a
 resources/mods/main_menu/||0
 resources/mods/main_menu/extra.rpy|3bb4a51f6e6a68097da224a65a93348bbc8c152ffcd4a71f8da6f5be9c2cc5fe|799
 resources/mods/main_menu/lang.rpy|7cff2dca27d5b492d177f4b6ac76fbfc3ef43526b4a6dcc805838daed7fa5198|2542
-resources/mods/main_menu/main.rpy|589f226465bafa7f32c56f6391388aa8f3d7d9a41f53de74b3003bc57f2ae71b|10039
+resources/mods/main_menu/main.rpy|234a42979efe96ec3ba7ddd958ca83680332a82c6f8e9a2936da5dd3076ff7dc|10335
 resources/mods/main_menu/new.rpy|aadf9c1020da784d1d9e30b58986a93082442cff7c6c05e41b8ca94c82c99880|3504
-resources/mods/main_menu/projects.rpy|bb9aefac107a9d9fe674ae901f21ad86883950b369ee0981702875b9e2513342|7590
+resources/mods/main_menu/projects.rpy|b248416cc0295f537c0dfc21a8d162222ab2025e34f0438c76b37c3f883a15e1|8190
 resources/mods/main_menu/set_icon/||0
 resources/mods/main_menu/set_icon/change_icon.py|f6cde7b9c02c40f57329ea6177939e39ad12c9b58153abfbfa85ab9877c00ec8|13340
 resources/mods/main_menu/set_icon/pefile.py|5b0f5ccc0a901f02df6499da9857a7165ebc735b303430746a564abc10c8693e|293365

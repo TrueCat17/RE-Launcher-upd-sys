@@ -210,7 +210,6 @@ init -100 python:
 	
 	def project__build():
 		if 'zip_paths' in dont_save:
-			notification.out(_('Building has already started') + ' (%s/%s)' % (dont_save.zip_paths_added, len(dont_save.zip_paths)))
 			return
 		
 		zip_path = projects_dir + project.dir + '.zip'
@@ -236,7 +235,13 @@ init -100 python:
 				if path_to != var_path:
 					zip_paths.append((path_from, path_to))
 		
+		notification.out(project.get_zip_progress)
 		interruptable_while(project.add_to_zip)
+	
+	def project__get_zip_progress():
+		if 'zip_paths' not in dont_save:
+			return None
+		return int(dont_save.zip_paths_added / len(dont_save.zip_paths) * 100)
 	
 	def project__add_to_zip():
 		if 'zip_paths_added' not in dont_save: # will never be True (no saving/loading in Launcher), but... this is good style
@@ -244,7 +249,18 @@ init -100 python:
 		
 		path_from, path_to = dont_save.zip_paths[dont_save.zip_paths_added]
 		dont_save.zip_paths_added += 1
-		dont_save.zf.write(path_from, path_to)
+		
+		ext_sep_index = path_to.rfind('.')
+		ext = path_to[ext_sep_index+1:].lower() if ext_sep_index != -1 else ''
+		
+		exts_dont_compress = ('zip', 'dll', 'exe', '', 'jpg', 'jpeg', 'png', 'webp', 'mp3', 'ogg', 'woff2')
+		compress_by_ext = ext not in exts_dont_compress
+		# exceptions (good compression):
+		is_cygwin_dll = path_to.endswith('cygwin1.dll')
+		in_root = path_to.count('/') == 1 # small exe start file
+		
+		need_compress = compress_by_ext or is_cygwin_dll or in_root
+		dont_save.zf.write(path_from, path_to, compresslevel = 9 if need_compress else 0)
 		
 		if dont_save.zip_paths_added == len(dont_save.zip_paths):
 			dont_save.zf.close()
