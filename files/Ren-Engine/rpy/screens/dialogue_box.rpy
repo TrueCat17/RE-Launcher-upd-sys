@@ -87,6 +87,9 @@ init -1000 python:
 				db[prop] = value
 	
 	def db__show_text(name, text, local_styles):
+		text = text.replace('%%', '%') # percent escaping from old renpy versions (see config.old_substitutions)
+		text = interpolate_tags(text)
+		
 		if name is None:
 			if db.local_styles is None:
 				name = ''
@@ -273,13 +276,13 @@ init -1000 python:
 	
 	
 	db.read = True
-	def db_read_func():
+	def db__read_func():
 		return db.read
-	can_exec_next_check_funcs.append(db_read_func)
+	can_exec_next_check_funcs.append(db__read_func)
 	
 	
 	def db__disable_skipping_on_menu(screen_name):
-		if screen_name == 'choice_menu':
+		if screen_name in ('choice_menu', 'pause'):
 			db.skip_tab = False
 	signals.add('show_screen', db__disable_skipping_on_menu)
 	
@@ -299,8 +302,10 @@ init -1000 python:
 	def set_mode_nvl():
 		db.mode = 'nvl'
 		nvl_clear()
-	
-	# set clean state
+
+
+# after all configurations
+init 1000000 python:
 	narrator('')
 	db.read = True
 	window_hide()
@@ -414,20 +419,21 @@ screen dialogue_box_adv:
 
 
 screen dialogue_box_nvl:
-	image 'images/bg/black.jpg':
+	image gui.nvl_bg:
 		size 1.0
-		alpha 0.30
 	
 	vbox:
-		ypos 0.05
+		ypos gui.get_int('nvl_top_indent')
 		
 		spacing 0 if gui.nvl_height else gui.get_int('nvl_spacing')
 		
 		python:
-			db.last_dialogue = db.dialogue + [(
-				db.name_text,     db.name_text_font,     db.name_text_color,     db.name_text_outlinecolor,
-				db.dialogue_text, db.dialogue_text_font, db.dialogue_text_color, db.dialogue_text_outlinecolor
-			)]
+			db.last_dialogue = db.dialogue.copy()
+			if db.dialogue_text:
+				db.last_dialogue.append((
+					db.name_text,     db.name_text_font,     db.name_text_color,     db.name_text_outlinecolor,
+					db.dialogue_text, db.dialogue_text_font, db.dialogue_text_color, db.dialogue_text_outlinecolor
+				))
 			_name_text_yoffset     = max(gui.get_int('dialogue_text_size') - gui.get_int('name_text_size'), 0)
 			_dialogue_text_yoffset = max(gui.get_int('name_text_size') - gui.get_int('dialogue_text_size'), 0)
 		
@@ -436,7 +442,7 @@ screen dialogue_box_nvl:
 				ysize gui.get_int('nvl_height') if gui.nvl_height else -1
 				
 				if _name_text:
-					text _name_text:
+					text (gui.nvl_name_prefix + _name_text + gui.nvl_name_suffix):
 						xpos gui.get_int('nvl_name_xpos')
 						ypos gui.get_int('nvl_name_ypos') + _name_text_yoffset
 						xsize gui.get_int('nvl_name_width')
@@ -449,7 +455,7 @@ screen dialogue_box_nvl:
 						outlinecolor _name_outlinecolor
 				
 				$ nvl_text_prefix = 'nvl_' + ('text' if _name_text else 'thought') + '_'
-				text _dialogue_text:
+				text (gui.nvl_text_prefix + _dialogue_text + gui.nvl_text_suffix):
 					xpos gui.get_int(nvl_text_prefix + 'xpos')
 					ypos gui.get_int(nvl_text_prefix + 'ypos') + (_dialogue_text_yoffset if _name_text else 0)
 					xsize gui.get_int(nvl_text_prefix + 'width')
@@ -466,7 +472,7 @@ screen dialogue_box_nvl:
 screen dialogue_box:
 	zorder -2
 	
-	key 'h' action SetVariable('db.hide_interface', not db.hide_interface)
+	key 'h' action 'db.hide_interface = not db.hide_interface'
 	
 	$ db.to_next = False
 	for key in ('RETURN', 'SPACE'):
@@ -476,19 +482,19 @@ screen dialogue_box:
 	if db.to_next:
 		$ db.skip_tab = False
 	
-	key 'LEFT SHIFT'  action SetVariable('db.last_shift_time', get_game_time()) first_delay 0
-	key 'RIGHT SHIFT' action SetVariable('db.last_shift_time', get_game_time()) first_delay 0
-	key 'LEFT ALT'    action SetVariable('db.last_alt_time', get_game_time()) first_delay 0
-	key 'RIGHT ALT'   action SetVariable('db.last_alt_time', get_game_time()) first_delay 0
+	key 'LEFT SHIFT'  action 'db.last_shift_time = get_game_time()' first_delay 0
+	key 'RIGHT SHIFT' action 'db.last_shift_time = get_game_time()' first_delay 0
+	key 'LEFT ALT'    action 'db.last_alt_time = get_game_time()' first_delay 0
+	key 'RIGHT ALT'   action 'db.last_alt_time = get_game_time()' first_delay 0
 	
 	$ db.prev_ctrl = db.ctrl
 	$ db.ctrl = False
-	key 'LEFT CTRL'  action SetVariable('db.ctrl', True) first_delay 0
-	key 'RIGHT CTRL' action SetVariable('db.ctrl', True) first_delay 0
+	key 'LEFT CTRL'  action 'db.ctrl = True' first_delay 0
+	key 'RIGHT CTRL' action 'db.ctrl = True' first_delay 0
 	if db.ctrl and not db.prev_ctrl:
 		$ db.press_ctrl_time = get_game_time()
 	
-	key 'TAB' action ToggleVariable('db.skip_tab')
+	key 'TAB' action 'db.skip_tab = not db.skip_tab'
 	
 	python:
 		db.skip = False
@@ -541,5 +547,5 @@ screen dialogue_box:
 			alpha  0.01
 			mouse  False
 			
-			action SetVariable('db.hide_interface', False)
+			action 'db.hide_interface = False'
 
