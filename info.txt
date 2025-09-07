@@ -285,7 +285,7 @@ templates/rpg/resources/mods/rpg_editor/readme.txt|fb690103e46e1a80f7849a165b4dd
 templates/rpg/resources/mods/rpg_editor/results/||0
 templates/rpg/resources/mods/rpg_editor/results/locations.rpy|e90b722b343e670af0d4e651a5447fec07880a21fc45e738aa21d6d6e1dbb796|568
 templates/rpg/resources/mods/rpg_editor/results/objects.rpy|3257a38b45e208966f878b49cf55c786a0f683d2b9fe18f5545f96c1a5bf847a|508
-templates/rpg/resources/mods/rpg_editor/save_load.rpy|025f8781baf9f5a2d40aa142e36632303a7e5f52e62eaf5c6f714150f7d41b7f|5221
+templates/rpg/resources/mods/rpg_editor/save_load.rpy|6afd14f96add5e8c86b13e530de213e6826cf69c32ae180918809e3ec40ead0e|5318
 templates/rpg/resources/mods/rpg_editor/screens/||0
 templates/rpg/resources/mods/rpg_editor/screens/all_locations.rpy|e8bbf04c1b077ba953536a980490a9415ed0e2964ae647c22543129f88423007|2429
 templates/rpg/resources/mods/rpg_editor/screens/location_list.rpy|a020079d06a797ce5c1272351eb343d1bdb3c7cf61430f60de374293dd88f91d|1925
