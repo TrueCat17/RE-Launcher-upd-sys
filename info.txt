@@ -1,7 +1,7 @@
 Ren-Engine Launcher.exe|257d133e48c202bcdd878c0102b18508210ad2c44c8c719e76205f583cf8d433|48640
 Ren-Engine Launcher.sh|e1c896464b9193428e530082b14c9dfa0296d31be2a57b13ded7d91346c6fd34|393
 Ren-Engine/||0
-Ren-Engine/Ren-Engine Launcher.exe|a9b92709b1a680a76275b98bac948cfa80db333bd3b8312e42ef99f7f76c46e0|4246016
+Ren-Engine/Ren-Engine Launcher.exe|60d93532fee4363a28f13870f1f8f753ccef0f70769b1b9c1ad8eec6e6929a9c|4187648
 Ren-Engine/SDL2.dll|f6263d5b204f7ce80d923934488efe22ecd12561c657e36daa443fd735b0064b|451584
 Ren-Engine/cygwin1.dll|13c2528a2dd6e247520f75c77cad6b1756f8ca763224920fd4db576ae596b6d0|1572079
 Ren-Engine/linux-i686|bdd182c74ac380f3ddd426538388a9705b44c070fbf7662f3f560d3543721270|4418436
@@ -15,7 +15,7 @@ Ren-Engine/rpy/call_screen.rpy|dc17de0fe91ebcf59cd8010107a4078ddb50d89c1d04cacd0
 Ren-Engine/rpy/character.rpy|0732e617919fa994ac030bb75fd25891fdd784b9faf76e5044119f3b7576854a|27053
 Ren-Engine/rpy/config.rpy|9914a8777d67d707a4b909649f26571fc30630d9ef89608e3bea8f6753551e75|1630
 Ren-Engine/rpy/extra.rpy|2146d46e77db70673395ebf3c6c43a942b17dd875b602a070e8291212aad21ac|5906
-Ren-Engine/rpy/gui.rpy|9581a3ecb5cb4a8cd1afc96aca8fcac0d4e77885185cd637edb2c027d89ad426|7397
+Ren-Engine/rpy/gui.rpy|6f0d2ece5de9e291182f8844839de7ce85d5a50054961e1136725775435d55e7|7398
 Ren-Engine/rpy/im_functions.rpy|88289fcf975cdd5cf0cdafe8f0739a9f93b672179d47ee3e99f7dbe20c707f29|15741
 Ren-Engine/rpy/imports.rpy|285a7e07cfd50d2a323742cecd94d9a23ccb34eba7fbebbd3b513b9972f97e64|1463
 Ren-Engine/rpy/object.rpy|3d4b6b5e2b7196d4f0d24f575e8ba102bceee785919a43de3d30aa4bfa0e9b52|5821
@@ -94,7 +94,7 @@ Ren-Engine/rpy/vn/||
 Ren-Engine/rpy/vn/sprite.rpy||
 Ren-Engine/rpy/vn/sprite_animation.rpy||
 Ren-Engine/rpy/vn/sprite_animation_data.rpy||
-Ren-Engine/version|8cfa3664a1bd92ed366e1e5411e0343850b6f2fb9c91a4c70039b7fa88dee0a4|17
+Ren-Engine/version|4413d5e7858ffee4ba306c36f9e039f4cf62f8dbea851f82b740cdc09a88161e|17
 Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
 resources/||0
 resources/fonts/||0
