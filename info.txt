@@ -43,7 +43,7 @@ Ren-Engine/rpy/rpg/user_objects/particle_factory.rpy|123834a1c2edd06877d2e659519
 Ren-Engine/rpy/rpg/user_objects/scroll_object.rpy|9dfe32e3feb21964c11e66bbf70233c33df956d9250e0fc60bc380366e0e24fc|1629
 Ren-Engine/rpy/screens/||0
 Ren-Engine/rpy/screens/choice_menu.rpy|23b062cb729e8ef797a4ebe08c0c6fd54c8a2fd33b71eb1fccc1be2f400114dc|1158
-Ren-Engine/rpy/screens/console.rpy|509c50cd1c240b4e9d70f4008870f5ace72f0ff14476572f71c20c5aff42250a|11788
+Ren-Engine/rpy/screens/console.rpy|8ada4b322a706c92028c41c6609964c06ba8f49394866793e9f4bbba2ef2c095|11815
 Ren-Engine/rpy/screens/debug.rpy|3d2365e8054f92ed666a7859de8bdb0d6c14d4d12cdd2f70e495e9613aaad4bf|6225
 Ren-Engine/rpy/screens/dialogue_box.rpy|13581cbf1eee82da39c3bbb609f839de56f2a0882903e1187f8292e604040abb|18780
 Ren-Engine/rpy/screens/help.rpy|267cc000b2d6b95a3efe402c1553e319b23a084a3f2619ac5afa729c805de206|6240
@@ -95,7 +95,7 @@ Ren-Engine/rpy/vn/||
 Ren-Engine/rpy/vn/sprite.rpy||
 Ren-Engine/rpy/vn/sprite_animation.rpy||
 Ren-Engine/rpy/vn/sprite_animation_data.rpy||
-Ren-Engine/version|9163be0780b65f4b12451d55c0723fb2d979f08792364c71c934ce8dc3fb054b|17
+Ren-Engine/version|8b9b8ded5e458af7c384b3abe7e08645a37ca6a733e7f861492e895ccee56c4a|17
 Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
 resources/||0
 resources/fonts/||0
