@@ -69,7 +69,7 @@ Ren-Engine/rpy/signals/interval.rpy|130279bacb263a23e7f5aecc091899195c922589629e
 Ren-Engine/rpy/signals/signals.rpy|c38c8bb2d29f7307df67df7542856cd94baacdd6d45df9bf7ad7f1fc33be5baa|1839
 Ren-Engine/rpy/signals/timeout.rpy|2ecb2c2d26303cd8d5f386a2b53ec33b7a8c401d88abb1d9e12bb8499b2191de|1192
 Ren-Engine/rpy/simple_object.rpy|154b38047c4650e30b075f7147c3ec7a855f1370df905d38e9aa2e0762969a85|1000
-Ren-Engine/rpy/slots.rpy|6b9bfb1174216df6759d86d9c5dc8c2c895f940d52edad9b7cc0f5196c90a6d4|8588
+Ren-Engine/rpy/slots.rpy|e3ba7dff5cc469a36f0465892ea0d62b4dce8bfa7fecf78e70e806d8a4ff5c39|8785
 Ren-Engine/rpy/smooth_changes.rpy|c50483875da13ff2d5612bae81c51257ca83ea9d303770fe2eed32635af030ad|2869
 Ren-Engine/rpy/sound_channels.rpy|39ee2244d93ab72ba7c008f65874c4623bb68b03f41d1730ddd8248f57810621|716
 Ren-Engine/rpy/sprite/||0
@@ -95,7 +95,7 @@ Ren-Engine/rpy/vn/||
 Ren-Engine/rpy/vn/sprite.rpy||
 Ren-Engine/rpy/vn/sprite_animation.rpy||
 Ren-Engine/rpy/vn/sprite_animation_data.rpy||
-Ren-Engine/version|8b9b8ded5e458af7c384b3abe7e08645a37ca6a733e7f861492e895ccee56c4a|17
+Ren-Engine/version|afdec885ec9a589f85a01458d157fee0a4a836d5d40b1750270f2c65aa4bc1fd|17
 Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
 resources/||0
 resources/fonts/||0
