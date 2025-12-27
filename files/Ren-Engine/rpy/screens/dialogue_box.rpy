@@ -2,14 +2,14 @@ init -1000 python:
 	# db = dialogue box
 	
 	
-	def db__make_step(text, start_index, max_count_symbols = 1e9):
+	def db__make_step(text, start_index, start_symbols):
 		l = len(text)
 		index = start_index
-		symbols = 0
+		symbols = start_symbols
 		tag = value = None
 		
-		while index < l and symbols < max_count_symbols:
-			while index < l and text[index].isspace():
+		while index < l:
+			while index < l and text[index] in ' \n':
 				index += 1
 			if index == l:
 				break
@@ -17,14 +17,14 @@ init -1000 python:
 			# maybe style start/end, for example: {size=25} or {/b}
 			if text[index] == '{':
 				
-				# not style, '{{' render to '{'
+				# not style, '{{' renders to '{'
 				if index + 1 < l and text[index + 1] == '{':
 					index += 2
 					symbols += 1
 				
 				# style
 				else:
-					if symbols != 0:
+					if symbols != start_symbols:
 						break # stop if was text on current step
 					
 					start_index = index
@@ -44,6 +44,16 @@ init -1000 python:
 				symbols += 1
 		
 		return index, symbols, tag, value
+	
+	# without tags, space symbols and escaped {
+	def db__count_symbols(text):
+		prev_index = None
+		index = 0
+		symbols = 0
+		while prev_index != index:
+			prev_index = index
+			index, symbols, tag, value = db.make_step(text, index, symbols)
+		return symbols
 	
 	
 	def db__update_styles(local_styles = None):
@@ -102,9 +112,10 @@ init -1000 python:
 					value = value()
 				db[prop] = value
 	
-	def db__show_text(name, text, local_styles):
-		text = text.replace('%%', '%') # percent escaping from old renpy versions (see config.old_substitutions for renpy)
-		text = interpolate_tags(text)
+	def db__show_text(name, text, local_styles, need_interpolate = True):
+		if need_interpolate:
+			text = text.replace('%%', '%') # percent escaping from old renpy versions (see config.old_substitutions for renpy)
+			text = interpolate_tags(text)
 		
 		if name is None:
 			if db.local_styles is None:
@@ -122,9 +133,10 @@ init -1000 python:
 		
 		prev_index = None
 		index = 0
+		symbols = 0
 		while prev_index != index:
 			prev_index = index
-			index, symbols, tag, value = db.make_step(text, index)
+			index, symbols, tag, value = db.make_step(text, index, symbols)
 			
 			if tag == 'w':
 				db.pause_after_text = 1e9
@@ -145,17 +157,23 @@ init -1000 python:
 			db.start_time = get_game_time()
 			
 			db.name_text = name
-			
-			db.dialogue_text = ''
-			db.dialogue_full_text = text
+			db.dialogue_text = text
+			db.visible_symbols = 0
 		
 		# continuation of prev text (for <extend> character)
 		else:
-			db.start_time = get_game_time() - len(db.dialogue_text) / config.text_cps
+			db.start_time = get_game_time() - db.all_visible_symbols / config.text_cps
 			
-			db.dialogue_full_text += text
+			db.dialogue_text += text
+			db.visible_symbols = db.all_visible_symbols
 		
-		if name is not None or db.dialogue_text_after_pause or not db.prev_texts:
+		mode_prefix = 'nvl_' if db.mode == 'nvl' else ''
+		prefix_symbols = db.count_symbols(db[mode_prefix + 'text_prefix'])
+		suffix_symbols = db.count_symbols(db[mode_prefix + 'text_suffix'])
+		
+		db.all_visible_symbols = prefix_symbols + db.count_symbols(db.dialogue_text) + suffix_symbols
+		
+		if name is not None or not db.prev_texts:
 			if text:
 				text_object = db.get_cur_text_object(text)
 				db.dialogue.append(text_object)
@@ -207,20 +225,9 @@ init -1000 python:
 				db.name_box_width = None
 		
 		
-		if db.dialogue_text != db.dialogue_full_text:
-			symbols_to_render = int((get_game_time() - db.start_time) * config.text_cps)
-			
-			prev_index = None
-			index = 0
-			while symbols_to_render and prev_index != index:
-				prev_index = index
-				index, symbols, tag, value = db.make_step(db.dialogue_full_text, index, symbols_to_render)
-				symbols_to_render -= symbols
-			
-			if index < len(db.dialogue_full_text):
-				db.dialogue_text = db.dialogue_full_text[:index] + '{invisible}' + db.dialogue_full_text[index:]
-			else:
-				db.dialogue_text = db.dialogue_full_text
+		if db.visible_symbols != db.all_visible_symbols:
+			db.visible_symbols = int((get_game_time() - db.start_time) * config.text_cps)
+			db.visible_symbols = min(db.visible_symbols, db.all_visible_symbols)
 		else:
 			if db.pause_after_text != 0:
 				if db.pause_end == 0:
@@ -228,7 +235,7 @@ init -1000 python:
 				elif db.pause_end <= get_game_time():
 					db.pause_after_text = 0
 					db.pause_end = 0
-					db.show_text(None, db.dialogue_text_after_pause, db.local_styles)
+					db.show_text(None, db.dialogue_text_after_pause, db.local_styles, need_interpolate = False)
 	
 	
 	def db__enter_action():
@@ -244,7 +251,7 @@ init -1000 python:
 			db.pause_end = get_game_time()
 			return
 		
-		if db.dialogue_text == db.dialogue_full_text:
+		if db.visible_symbols == db.all_visible_symbols:
 			if db.read:
 				return
 			db.read = True
@@ -252,7 +259,7 @@ init -1000 python:
 			if db.mode != 'nvl':
 				db.dialogue = []
 		else:
-			db.dialogue_text = db.dialogue_full_text
+			db.visible_symbols = db.all_visible_symbols
 	
 	def db__get_cur_text_object(text = None):
 		if text is None:
@@ -435,7 +442,9 @@ screen dialogue_box_adv:
 					xalign       gui.name_text_xalign
 					yalign       gui.name_text_yalign
 			
-			text (db.text_prefix + db.dialogue_text + (db.text_suffix if db.dialogue_text == db.dialogue_full_text else '')):
+			text (db.text_prefix + db.dialogue_text + db.text_suffix):
+				visible_symbols db.visible_symbols
+				
 				xpos gui.get_int('dialogue_text_xpos', obj = db)
 				ypos gui.get_int('dialogue_text_ypos', obj = db)
 				xsize screen_tmp.dialogue_text_width
@@ -498,13 +507,8 @@ screen dialogue_box_nvl:
 						color        text_object.name_color
 						outlinecolor text_object.name_outlinecolor
 				
-				python:
-					if text_object is db.dialogue[-1] and db.dialogue_text != db.dialogue_full_text:
-						screen_tmp.text = db.dialogue_text
-					else:
-						screen_tmp.text = text_object.dialogue_text + text_object.nvl_text_suffix
-				
-				text (text_object.nvl_text_prefix + screen_tmp.text):
+				text (text_object.nvl_text_prefix + text_object.dialogue_text + text_object.nvl_text_suffix):
+					visible_symbols db.visible_symbols if text_object is db.dialogue[-1] else 1e9
 					
 					$ nvl_text_prefix = 'nvl_%s_' % ('text' if text_object.name_text else 'thought')
 					xpos  screen_tmp[nvl_text_prefix + 'xpos']

@@ -16,8 +16,6 @@ init -995 python:
 		
 		if type(mask) is str and len(mask) > 0:
 			input.mask = mask[0] # for <password> mode
-			if input.mask == '{':
-				input.mask = text_nav.key_tag
 		else:
 			input.mask = None
 		
@@ -69,8 +67,9 @@ init -995 python:
 	def input__get_text():
 		cursor = '{alpha=%s}%s{/alpha}' % (1 if time.time() % 2 < 1 else 0.01, input.cursor)
 		text = input.get_masked()
-		res = text[:input.index] + cursor + text[input.index:]
-		return res.replace(text_nav.key_tag, '{{')
+		text_before = text[:input.index].replace('{', '{{')
+		text_after  = text[input.index:].replace('{', '{{')
+		return text_before + cursor + text_after
 	
 	
 	def input__close():
@@ -84,6 +83,9 @@ init -995 python:
 		input.index = len(input.res)
 	
 	def input__add(s):
+		if get_game_time() - input.show_time < 0.5:
+			return
+		
 		old_index = input.index
 		
 		input.res, x, _y, add_index = text_nav.add(
@@ -252,7 +254,7 @@ init:
 
 screen input:
 	modal True
-	zorder 1000000
+	zorder 10000
 	
 	$ screen_tmp = SimpleObject()
 	
