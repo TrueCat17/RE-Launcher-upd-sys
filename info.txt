@@ -144,7 +144,7 @@ resources/mods/main_menu/||0
 resources/mods/main_menu/extra.rpy|3588d734f0f9d2544983801c8559379635bf93e883f1085a45cd112f7f6b996c|1759
 resources/mods/main_menu/lang.rpy|8634a4d70ac3ddcdf40b94e4df36522322a43c38fb55b24a3eb4ff9b0707373f|2568
 resources/mods/main_menu/main.rpy|c9366dc8df9caf73290fc60c9199b91010b1c5469d4f56e4954ceb8150057587|15306
-resources/mods/main_menu/new.rpy|a4cbe47b5e574698471780f7e7cd8589d633f0fc1fac3648440afa86cdcedea6|4480
+resources/mods/main_menu/new.rpy|b7fc48dc39431d259ed887d07bc2eb2fa6e20c512cdce4dc7f7d23d5cc12aaf1|4479
 resources/mods/main_menu/projects.rpy|1866215b34eeefe429fd2d874ee238e55da474f9b70633412c18fcfa3016e13a|9611
 resources/mods/main_menu/set_icon/||0
 resources/mods/main_menu/set_icon/change_icon.py|f6cde7b9c02c40f57329ea6177939e39ad12c9b58153abfbfa85ab9877c00ec8|13340
@@ -155,7 +155,7 @@ resources/mods/main_menu/stdout_viewer.rpy||
 resources/mods/main_menu/theme_editor.rpy|fc0f2cf12e84f21b551307021b26807ef9a7ae04d25abe8d8c713df5795dd87d|10771
 resources/mods/main_menu/themes.rpy|00276ba2411c223d1ba6fd91a5f691fa97461375815d1c9fb62fe722ef971243|6376
 resources/mods/main_menu/tl/||0
-resources/mods/main_menu/tl/russian.rpy|d66822d67a5aa16217ba4a2ec8e412a7e646d980a9e66aecfce80d5ab2e2bd49|4444
+resources/mods/main_menu/tl/russian.rpy|bcd3ed332f3eeeced83dd1bdd264671a9950ce6f6a3653555fb10457c82dad2c|4443
 resources/params.conf|bdc8630b1ce4b00f0afc7c741ea676fcd29f2a72e2077fc2ec7d9621997bf7c5|2508
 templates/||0
 templates/common/||0
@@ -316,7 +316,7 @@ templates/vn/resources/images/bg/room.jpg||
 templates/vn/resources/images/sprites/||0
 templates/vn/resources/images/sprites/rn/||0
 templates/vn/resources/images/sprites/rn/happy.png||
-templates/vn/resources/images/sprites/rn/smile.webp|89a6ccf06044d18b7cec1c38c90a2630a5282da0d46d93c1f24b1c64bf905906|130774
+templates/vn/resources/images/sprites/rn/smile.webp|fe1ade4ee5791b86dbd2ee064d08ab45013eddb239b9f5f00e86d1f3e49074fc|142336
 templates/vn/resources/mods/||0
 templates/vn/resources/mods/common/||0
 templates/vn/resources/mods/common/bg.rpy|75834b23f55aaa57c088c547f4c13788f360500625aafe35f846edf96c49bfab|138
@@ -327,11 +327,11 @@ templates/vn/resources/mods/common/music.rpy|772d8e610f4229fd21938424b2d4a521cc2
 templates/vn/resources/mods/common/sprites.rpy|35abf537785e08406e5840ce072ace707353f595958b22f407b88d47c92dfa7e|139
 templates/vn/resources/mods/sprite_moving/||0
 templates/vn/resources/mods/sprite_moving/images.rpy|b0b60c226115564eb0ed875b128a05440458840a763416cb676bc22c55b3932c|8928
-templates/vn/resources/mods/sprite_moving/main.rpy|8d2cd10b883b4ff0c5c72d77fcc72bb167994f72b39b5a88c33a88bbfa279b8c|280
+templates/vn/resources/mods/sprite_moving/main.rpy|357e377693d321ac8d8acf27f60ab9fdd95d8efc7c89be0eb65dd28ecc6528f1|279
 templates/vn/resources/mods/sprite_moving/name|b59ef3c65d32acc6cd3a23a232acd7daf6e06d19cd9740ed6dcac165af22a90e|62
 templates/vn/resources/mods/sprite_moving/panel.rpy||
 templates/vn/resources/mods/sprite_moving/panels.rpy|a8d5b3be7e9b1de42d6ced4ec93bc79c7633f260b2dacdbf5d51c370baa9de20|5873
-templates/vn/resources/mods/sprite_moving/props_panel.rpy|56bf3f63f5e7f757376d2623309815f466a3154359dbbb83d3c30b27ce21d8af|5818
+templates/vn/resources/mods/sprite_moving/props_panel.rpy|e0bc451833863cb4dd7cd688360a1cbd28b916e88d46862b758c9a066bf09cc3|5938
 templates/vn/resources/mods/sprite_moving/readme.txt|a14c498bfc4915efca327d024189573b8d5642659b8870f2694552c21f597250|555
 templates/vn/resources/mods/sprite_moving/sprites.rpy|d73ac5c4592ba8a34930810bf72b383ab70f4935678ee0521256c78fb7c480a0|1138
 templates/vn/resources/mods/sprite_moving/sprites_panel.rpy|a50bdc33ef485be6c56348dd448061cc26e3b3888b1334d25897dab24e620352|8184
@@ -340,6 +340,6 @@ templates/vn/resources/mods/sprite_moving/tl/russian/||0
 templates/vn/resources/mods/sprite_moving/tl/russian/main.rpy|4d0aa199008591f70659e7e0ffc2bce80f8a4f75c05d5ea04141cf1c093b6c02|523
 templates/vn/resources/mods/sprite_moving/tl/russian/readme.txt|a56f22d2732b314a3bc8d481e6f64f6c98c25a587046681e82afed967fb3a5bb|941
 templates/vn/resources/mods/std/||0
-templates/vn/resources/mods/std/main.rpy|3b0418d20533627ee11c82d3313c33a9ed0f5d346522cecee0d7683e2377d7c6|121
+templates/vn/resources/mods/std/main.rpy|e5d6dce6f598aa07043a8d91d74492f06b2c3d9239b636630f632b5f4bc846b9|120
 templates/vn/resources/params.conf|c74ec97274d4b82ff9d8646d0217f4839942f2bfa0ae0a317a1d02138149b563|2528
 upd_link.txt|bf4e3fba5d099c216ed8ac4346a5a73b075d828b7ade2730027d4cf0ebf8325d|64
