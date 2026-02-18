@@ -51,14 +51,14 @@ Ren-Engine/rpy/screens/history.rpy|36cbf248d652136f0cd9cf6f56c8a8472cced257f5faf
 Ren-Engine/rpy/screens/hotkeys.rpy|9e34a77022c28454e3b6815a3ff0bbdaf65429d145c93d8df13083984ff3fd2a|5505
 Ren-Engine/rpy/screens/input.rpy|b17be9327ea2d26a2b34755f5fad5724da7d3e91091c6a372598d293f72d4079|9448
 Ren-Engine/rpy/screens/inventory.rpy|0cb9a18ea382d31277f505d8e828501c5406cb3682eca941e025c2f2dbfd86d5|15212
-Ren-Engine/rpy/screens/load.rpy|d44eb8b02de8ac8a55b8ba99e5f02766d75364b1441a0fb7bfd48ad473140ec9|132
+Ren-Engine/rpy/screens/load.rpy|ca6ef7fa906123214674da2a6b0b3b620ef99c050eff98a601bca21882eeb38c|132
 Ren-Engine/rpy/screens/location.rpy|96e3f4e8ca8bb5254690ee4cd410f02dea09b085fb390ccdaf7985908895e93d|9642
 Ren-Engine/rpy/screens/mods.rpy|b59d40d509b812464bfb808174c54737d0dbe974099c9d89d45d08bf59064c5e|1342
 Ren-Engine/rpy/screens/notification.rpy|510414a129673a370a2b7099c1e354851d9b01b27584389e77fd306ccefb401b|2211
 Ren-Engine/rpy/screens/pause.rpy|50ef511caf2c632f63eae374e0c1a7550604c7814235db87e68c5fc6797cb643|2882
-Ren-Engine/rpy/screens/preferences.rpy|9ed5e09ce0b43b3ede163df8da4f38f1fc0b30cd9e3fe7d90d1cb0d7d92ed8c3|10394
+Ren-Engine/rpy/screens/preferences.rpy|e3a3c6558e1e74b506997ce7fc1156385ddff83a7b850428cffdd8ac63b42019|10394
 Ren-Engine/rpy/screens/quick_menu.rpy|137e5578b9d4c285af61cd071f5a2c3621901bb7005d15e8450f492bce0dbe0b|2175
-Ren-Engine/rpy/screens/save.rpy|a0248c691251d7623e94dd86e9c5f1c83ff706deb4c387adad406fd1842d3a00|146
+Ren-Engine/rpy/screens/save.rpy|8c8af922282d09344ae57f3c95479e57718d6dcd31f05dc3dec260b406cbec59|146
 Ren-Engine/rpy/screens/slider_v.rpy|7b99b2c75fdb3ec02c6c07c8942e8c36993699909cee81fd63d28b27afa37059|4181
 Ren-Engine/rpy/screens/slots.rpy|fe91fe08dd9bc1368fbf8d02973796a8bfc0bf1bf3e7cd6afa20f89c11538c0b|1768
 Ren-Engine/rpy/screens/sprites.rpy|8391675d3a4cdeb2a8ec656c58f1c06a4d8957dfdaad84f18db24b5299303872|7091
@@ -95,7 +95,7 @@ Ren-Engine/rpy/vn/||
 Ren-Engine/rpy/vn/sprite.rpy||
 Ren-Engine/rpy/vn/sprite_animation.rpy||
 Ren-Engine/rpy/vn/sprite_animation_data.rpy||
-Ren-Engine/version|2c775152c69ae5f4e196ef40e766ee50bf176c454a9dbbb19ba5c7287554e0da|17
+Ren-Engine/version|2806cbd787040ec2f30e710d53618e10bdf6641b1efed4664261db92128f5229|17
 Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
 resources/||0
 resources/fonts/||0
