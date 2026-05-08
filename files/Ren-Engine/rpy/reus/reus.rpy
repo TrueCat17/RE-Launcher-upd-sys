@@ -77,6 +77,9 @@ init python:
 		
 		empty = True
 		for path, ds, fs in os.walk(root):
+			if path == root:
+				ds[:] = [d for d in ds if d in reus.allowed_root_dirs]
+			
 			if reus.upd_link_fn not in fs:
 				continue
 			
@@ -111,6 +114,9 @@ init python:
 		reus_var_dir = reus.var_dir
 		
 		for path, ds, fs in os.walk(root):
+			if path == root:
+				ds[:] = [d for d in ds if d in reus.allowed_root_dirs]
+			
 			path = make_sure_dir(path[root_len:])
 			if path.startswith(var_dir) and not path.startswith(reus_var_dir):
 				continue
@@ -613,13 +619,15 @@ init python:
 	reus.version_fn = 'version.txt'
 	reus.info_fn = 'info.txt'
 	
-	reus.exec_files = [
+	reus.allowed_root_dirs = ('Ren-Engine', 'resources', 'var')
+	
+	reus.exec_files = (
 		'%s.exe',
 		'%s.sh',
 		'Ren-Engine/%s.exe',
 		'Ren-Engine/linux-i686',
 		'Ren-Engine/linux-x86_64',
-	]
+	)
 	
 	dont_save_reus = DontSave()
 	

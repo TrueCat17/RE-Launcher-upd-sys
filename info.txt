@@ -1,14 +1,15 @@
 Ren-Engine Launcher.exe|257d133e48c202bcdd878c0102b18508210ad2c44c8c719e76205f583cf8d433|48640
 Ren-Engine Launcher.sh|e1c896464b9193428e530082b14c9dfa0296d31be2a57b13ded7d91346c6fd34|393
 Ren-Engine/||0
-Ren-Engine/Ren-Engine Launcher.exe|2175ed6e2a1d0e6c322b4a2734fc848619c5a89cd97606d929b13057555dd87d|4197376
-Ren-Engine/SDL2.dll|f6263d5b204f7ce80d923934488efe22ecd12561c657e36daa443fd735b0064b|451584
+Ren-Engine/Ren-Engine Launcher.exe|9891f7538f353e0b7a0000859dc650c6f2dd99f7bb70ab5cc4a458b6e74e6071|5407744
+Ren-Engine/SDL2.dll||
 Ren-Engine/cygwin1.dll|13c2528a2dd6e247520f75c77cad6b1756f8ca763224920fd4db576ae596b6d0|1572079
-Ren-Engine/linux-i686|74481c79f3f8532af9324119226df8fd6dd9f3638d1632fbe867b1a316cf6eb2|4174760
-Ren-Engine/linux-x86_64|19482482169c6964b5d53d5be6a9323d77ddaa069bde0d78edeb0639a2b20a32|4235000
+Ren-Engine/linux-i686|4893a71fc33245e472e2a63fba0b303a1b0c33ebdab0e32ab3ac2f5b2486bd13|4748120
+Ren-Engine/linux-x86_64|868e1df96d9a3276df7e6ff2e1a34a092e3745b93de166b3d08f27de347d73c9|4665340
 Ren-Engine/py_libs/||0
 Ren-Engine/py_libs/lib/||0
-Ren-Engine/py_libs/lib/python311.zip|a71541a5337708f386b8b06baaad458d71853160f5d2ea04b50622ed079241ef|1541945
+Ren-Engine/py_libs/lib/python311.zip||
+Ren-Engine/py_libs/lib/python314.zip|dadf720f433aa7b2668c0aa5191ffa1ca61e9a089f5a8d3eab9a3eabb479f8fc|1633754
 Ren-Engine/rpy/||0
 Ren-Engine/rpy/actions.rpy|f4158beada3cc3f3020765c4afa6c2e46133927f2673339943ba8b3d89bad510|6639
 Ren-Engine/rpy/call_screen.rpy|dc17de0fe91ebcf59cd8010107a4078ddb50d89c1d04cacd09abcc0fc30e1ab9|566
@@ -25,7 +26,7 @@ Ren-Engine/rpy/persistent.rpy|7b180d6617605f470e4b6e55129d638a9129ac1eaf956c210f
 Ren-Engine/rpy/renpy_api.rpy|845ef7985d0db16b5a1b0d9a0785150e6298a4400bdfaed9a6377a3a004b13e9|8544
 Ren-Engine/rpy/reus/||0
 Ren-Engine/rpy/reus/https.rpy|326352c576c93ba37d0435a75369d0df302eedaaa06dff129b5a774135b3455a|3823
-Ren-Engine/rpy/reus/reus.rpy|40dcc65c03e275c286f8c0a5d2343c4a945cbfb890c054eb477ba2d20a739977|15950
+Ren-Engine/rpy/reus/reus.rpy|f11f938aeaf13823adedcd4d4de78eeed7e8e3068c638bdd8de934e7e3aac970|16179
 Ren-Engine/rpy/reus/reus_prefs.rpy|c9c2feb1393d5f5f320fd7478ef5a5a7770098e8cc90fc1a0f52d7ffe4f09863|3752
 Ren-Engine/rpy/rpg/||0
 Ren-Engine/rpy/rpg/actions.rpy|6049fdbc10b9bb87f41c23d11aa6fa21394e80ff4062c0105e619d47256a83ae|20296
@@ -95,8 +96,8 @@ Ren-Engine/rpy/vn/||
 Ren-Engine/rpy/vn/sprite.rpy||
 Ren-Engine/rpy/vn/sprite_animation.rpy||
 Ren-Engine/rpy/vn/sprite_animation_data.rpy||
-Ren-Engine/version|2806cbd787040ec2f30e710d53618e10bdf6641b1efed4664261db92128f5229|17
-Ren-Engine/wine-fix.txt|4bc680d19af1c02555b1626f4cb6d444255860631e724e44bd6be29cfc9c4197|103
+Ren-Engine/version|ffdcee13c1749eb8506dcce6ed6b9aa50f70f842395ace1cbb05f8e5b326ed7e|17
+Ren-Engine/wine-fix.txt|8c08ee4dd2d23cf171571f172ab3a40bdf307d76920230cc53522c0eadb6f369|104
 resources/||0
 resources/fonts/||0
 resources/fonts/Alcdnova.woff2|db144d652c7032f35eaee893488a8e2cf167af28aff3ed0fc58f140e815e2787|8248
